@@ -1,11 +1,16 @@
 " Sample .vimrc file by Martin Brochhaus
 " Presented at PyCon APAC 2012
 
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" ============================================
-" Note to myself:
-" DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
-" ============================================
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
+
+call vundle#end()
 
 
 " Automatic reloading of .vimrc
@@ -50,15 +55,15 @@ let mapleader = ","
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
-"" map <c-j> <c-w>j
-"" map <c-k> <c-w>k
-"" map <c-l> <c-w>l
-"" map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 
 " easier moving between tabs
-"" map <Leader>n <esc>:tabprevious<CR>
-"" map <Leader>m <esc>:tabnext<CR>
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
 
 
 " map sort function to a key
@@ -82,8 +87,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-color wombat256mod
-
+colorscheme desert
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -112,11 +116,11 @@ syntax on
 
 
 " Real programmers don't use TABs but spaces
-"" set tabstop=4
-"" set softtabstop=4
-"" set shiftwidth=4
-"" set shiftround
-"" set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
 
 
 " Make search case insensitive
@@ -131,13 +135,6 @@ set smartcase
 set nobackup
 set nowritebackup
 set noswapfile
-
-
-" Setup Pathogen to manage your plugins
-" mkdir -p ~/.vim/autoload ~/.vim/bundle
-" curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-" Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-call pathogen#infect()
 
 
 " ============================================================================
@@ -204,4 +201,7 @@ set laststatus=2
 " Python folding
 " mkdir -p ~/.vim/ftplugin
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
-"" set nofoldenable
+"" set nofoldenableE
+
+"" relative line number
+set rnu
