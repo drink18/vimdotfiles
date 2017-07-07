@@ -34,6 +34,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 "auto read
 Plugin 'djoshea/vim-autoread'
 
+"color pack
+Plugin 'flazz/vim-colorschemes'
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
