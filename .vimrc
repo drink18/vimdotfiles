@@ -43,6 +43,9 @@ Plugin 'mattn/emmet-vim'
 " tsuquyomi
 Plugin 'Quramy/tsuquyomi'
 
+"color pack
+Plugin 'flazz/vim-colorschemes'
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
