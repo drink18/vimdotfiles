@@ -31,8 +31,17 @@ Plugin 'scrooloose/nerdcommenter'
 " C++ syntax exra color
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
+" Type script syntax
+Plugin 'leafgarland/typescript-vim'
+
 "auto read
 Plugin 'djoshea/vim-autoread'
+
+"add this line to your .vimrc file
+Plugin 'mattn/emmet-vim'
+
+" tsuquyomi
+Plugin 'Quramy/tsuquyomi'
 
  " All of your plugins must be added before the following line
 call vundle#end()
