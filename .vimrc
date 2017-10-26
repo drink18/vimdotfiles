@@ -87,9 +87,9 @@ let mapleader = ","
 
 
 " Quicksave command
+"" inoremap <C-Z> <C-O>:update<CR>
 "" noremap <C-Z> :update<CR>
 "" vnoremap <C-Z> <C-C>:update<CR>
-"" inoremap <C-Z> <C-O>:update<CR>
 
 
 " Quick quit command
@@ -131,7 +131,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-color wombat256mod
+color wombat
 
 
 " Enable syntax highlighting
@@ -207,7 +207,16 @@ let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=*/coverage/*
-
+set wildignore+=*.o,*.obj,.git,.svn,moc_*,*.html,*.map,*.png,*.md5
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\.git$\|\.hg$\|\.svn$\|Projects$\|External$\|artifacts$\|Documentation$',
+  \ 'file': '\.o$\|\.obj$\|\.dylib$\|\.dll$\|moc_$\|.svn-base$|.html$\|.png$\|.map$\|.d$\|.dia$\|.meta$\|.md5$\|.preformat.bak$|.pdb$|.lump.cpp$'
+  \ }
+let g:ctrlp_cache_dir= $HOME . '/.cache/ctrlp'
+"if executable('ag')
+"  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"endif
 
 " Settings for python-mode
 " Note: I'm no longer using this. Leave this commented out
@@ -260,8 +269,6 @@ map <C-n> :NERDTreeToggle<CR>
 set rnu
 set nu
 
-"ctrlp setup
-let g:ctrlp_working_path_mode = 'ra'
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm.app"
@@ -282,3 +289,9 @@ noremap <C-k><C-k> :call NERDComment(0, "toggle") <c-m>
 " c++ color
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
+
+set encoding=UTF-8
+
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
