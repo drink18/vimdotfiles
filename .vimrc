@@ -272,6 +272,9 @@ map <C-m> :NERDTreeFind<CR>
 set rnu
 set nu
 
+" Disable annoying beeping
+set noerrorbells
+set vb t_vb=
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm.app"
@@ -297,5 +300,5 @@ set encoding=UTF-8
 
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/github/vimdotfiles/.ycm_extra_conf.py'
 map <Leader>g :YcmCompleter GoTo<CR>

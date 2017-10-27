@@ -38,7 +38,7 @@ import ycm_core
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
 '-Wall',
-'-Wextra',
+#'-Wextra',
 '-Werror',
 '-Wno-long-long',
 '-Wno-variadic-macros',
@@ -56,10 +56,11 @@ get_python_inc(),
 '-I',
 '.',
 '-I',
-'Projects/PrecompiledHeaders',
+'./Projects/PrecompiledHeaders',
 '-D',
 'ENABLE_PHYSICS=1'
 ]
+
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for older
@@ -67,6 +68,10 @@ get_python_inc(),
 if platform.system() != 'Windows':
   flags.append( '-std=c++11' )
 
+if platform.system() == 'Darwin':
+    flags.append('-DUnity_Apple')
+else if platform.system() == 'Windows':
+    flag.append('-DUnity_Windows')
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
