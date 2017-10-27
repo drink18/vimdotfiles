@@ -61,6 +61,9 @@ filetype plugin indent on
 " DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
 " ============================================
 
+" Remap jj to Esc
+inoremap jj <Esc>
+
 " auto read files
 set autoread
 
@@ -93,18 +96,6 @@ let mapleader = ","
 "" noremap <C-n> :nohl<CR>
 "" vnoremap <C-n> :nohl<CR>
 "" inoremap <C-n> :nohl<CR>
-
-
-" Quicksave command
-"" inoremap <C-Z> <C-O>:update<CR>
-"" noremap <C-Z> :update<CR>
-"" vnoremap <C-Z> <C-C>:update<CR>
-
-
-" Quick quit command
-"" noremap <Leader>e :quit<CR>  " Quit current window
-"" noremap <Leader>E :qa!<CR>   " Quit all windows
-
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
@@ -140,7 +131,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-color wombat
+color wombat256mod
 
 
 " Enable syntax highlighting
@@ -229,6 +220,7 @@ let g:ctrlp_cache_dir= $HOME . '/.cache/ctrlp'
 
 " Settings for python-mode
 " Note: I'm no longer using this. Leave this commented out
+"
 " and uncomment the part about jedi-vim instead
 " cd ~/.vim/bundle
 " git clone https://github.com/klen/python-mode
@@ -273,6 +265,8 @@ endfunction
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 set nofoldenable
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
+
 
 " line number
 set rnu
@@ -304,3 +298,4 @@ set encoding=UTF-8
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+map <Leader>g :YcmCompleter GoTo<CR>
