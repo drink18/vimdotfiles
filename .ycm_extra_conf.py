@@ -70,7 +70,7 @@ if platform.system() != 'Windows':
 
 if platform.system() == 'Darwin':
     flags.append('-DUnity_Apple')
-else if platform.system() == 'Windows':
+elif platform.system() == 'Windows':
     flag.append('-DUnity_Windows')
 
 # Set this to the absolute path to the folder (NOT the file!) containing the

@@ -46,6 +46,9 @@ Plugin 'Quramy/tsuquyomi'
 "color pack
 Plugin 'flazz/vim-colorschemes'
 
+"ack.vim
+Plugin 'mileszs/ack.vim'
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +72,7 @@ set autoread
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+set switchbuf+=usetab,newtab
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -264,9 +268,9 @@ endfunction
 " mkdir -p ~/.vim/ftplugin
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 set nofoldenable
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :NERDTreeFind<CR>
-
+nnoremap <C-n> :NERDTreeToggle<CR>
+"nnoremap <C-m> :NERDTreeFind<CR>
+let g:NERDTreeShowHidden=1
 
 " line number
 set rnu
@@ -302,3 +306,8 @@ set encoding=UTF-8
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/github/vimdotfiles/.ycm_extra_conf.py'
 map <Leader>g :YcmCompleter GoTo<CR>
+
+
+" replace vimgrep with ag
+let g:ackprg = 'ag --vimgrep'
+nnoremap <C-M-f> :Ack
