@@ -269,6 +269,7 @@ endfunction
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 set nofoldenable
 nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>/ : NERDTreeFind<CR>
 "nnoremap <C-m> :NERDTreeFind<CR>
 let g:NERDTreeShowHidden=1
 
