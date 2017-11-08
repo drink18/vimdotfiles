@@ -49,6 +49,12 @@ Plugin 'flazz/vim-colorschemes'
 "ack.vim
 Plugin 'mileszs/ack.vim'
 
+"vim-clang-format
+Plugin 'rhysd/vim-clang-format'
+
+"vim airline
+Plugin 'vim-airline/vim-airline'
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
