@@ -158,6 +158,10 @@ filetype off
 filetype plugin indent on
 syntax on
 
+" Seach selected text in visual mode
+vnoremap // y<esc> :Ack '<C-R>"'<CR> 
+" Seach word under curosr in normal mode
+nnoremap //  yiw:Ack '<C-R>"'
 
 " Showing line numbers and length
 "" set number  " show line numbers
