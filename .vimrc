@@ -55,6 +55,15 @@ Plugin 'rhysd/vim-clang-format'
 "vim airline
 Plugin 'vim-airline/vim-airline'
 
+"fzf
+Plugin 'junegunn/fzf'
+
+"vim-buffergator
+Plugin 'jeetsukumaran/vim-buffergator'
+
+"vim-buftabline
+Plugin 'ap/vim-buftabline'
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -78,7 +87,6 @@ set autoread
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
-set switchbuf+=usetab,newtab
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -97,7 +105,7 @@ set bs=2     " make backspace behave like normal again
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
-let mapleader = ","
+let mapleader = " "
 
 
 " Bind nohl
@@ -109,15 +117,15 @@ let mapleader = ","
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
-"" map <c-j> <c-w>j
-"" map <c-k> <c-w>k
-"" map <c-l> <c-w>l
-"" map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 
 " easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+map <Leader>n <esc>:bprev<CR>
+map <Leader>m <esc>:bnext<CR>
 
 
 " map sort function to a key
@@ -224,33 +232,13 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.o$\|\.obj$\|\.dylib$\|\.dll$\|moc_$\|.svn-base$|.html$\|.png$\|.map$\|.d$\|.dia$\|.meta$\|.md5$\|.preformat.bak$|.pdb$|.lump.cpp$'
   \ }
 let g:ctrlp_cache_dir= $HOME . '/.cache/ctrlp'
-"if executable('ag')
-"  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"endif
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " Settings for python-mode
 " Note: I'm no longer using this. Leave this commented out
 "
-" and uncomment the part about jedi-vim instead
-" cd ~/.vim/bundle
-" git clone https://github.com/klen/python-mode
-map <Leader>g :call RopeGotoDefinition()<CR>
-let ropevim_enable_shortcuts = 1
-let g:pymode_rope_goto_def_newwin = "vnew"
-let g:pymode_rope_extended_complete = 1
-let g:pymode_breakpoint = 0
-let g:pymode_syntax = 1
-let g:pymode_syntax_builtin_objs = 0
-let g:pymode_syntax_builtin_funcs = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-
-" Settings for jedi-vim
-" cd ~/.vim/bundle
-" git clone git://github.com/davidhalter/jedi-vim.git
-let g:jedi#usages_command = "<leader>z"
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
@@ -318,3 +306,7 @@ map <Leader>g :YcmCompleter GoTo<CR>
 " replace vimgrep with ag
 let g:ackprg = 'ag --vimgrep'
 nnoremap <C-M-f> :Ack
+
+
+" highlight current line
+set cursorline
