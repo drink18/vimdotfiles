@@ -64,6 +64,12 @@ Plugin 'jeetsukumaran/vim-buffergator'
 "vim-buftabline
 Plugin 'ap/vim-buftabline'
 
+"mercenary
+Plugin 'jlfwong/vim-mercenary'
+
+"tagbar
+Plugin 'majutsushi/tagbar'
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
