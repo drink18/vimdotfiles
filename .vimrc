@@ -55,9 +55,6 @@ Plugin 'rhysd/vim-clang-format'
 "vim airline
 Plugin 'vim-airline/vim-airline'
 
-"fzf
-Plugin 'junegunn/fzf'
-
 "vim-buffergator
 Plugin 'jeetsukumaran/vim-buffergator'
 
@@ -69,6 +66,9 @@ Plugin 'jlfwong/vim-mercenary'
 
 "tagbar
 Plugin 'majutsushi/tagbar'
+
+"LeaderF
+Plugin 'Yggdroot/LeaderF'
 
  " All of your plugins must be added before the following line
 call vundle#end()
@@ -102,6 +102,9 @@ set pastetoggle=<F2>
 if $TMUX== ''
     set clipboard=unnamed
 endif
+
+" mark 80 char line
+set colorcolumn=80
 
 
 " Mouse and backspace
@@ -303,7 +306,12 @@ set encoding=UTF-8
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/github/vimdotfiles/.ycm_extra_conf.py'
 map <Leader>g :YcmCompleter GoTo<CR>
-
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
+highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
 " replace vimgrep with ag
 let g:ackprg = 'ag --vimgrep'
@@ -312,3 +320,13 @@ nnoremap <C-M-f> :Ack
 
 " highlight current line
 set cursorline
+
+" folding
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
+" lead F
+nnoremap <Leader>t :LeaderfBufTag <CR>
+
