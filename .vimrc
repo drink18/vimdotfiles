@@ -16,9 +16,6 @@ Plugin 'VundleVim/Vundle.vim'
 " ycm
 Plugin 'Valloric/YouCompleteMe'
 
-"ctrlp
-Plugin 'kien/ctrlp.vim'
-
 "YCM_generato
 Plugin 'rdnetto/YCM-Generator'
 
@@ -69,6 +66,9 @@ Plugin 'majutsushi/tagbar'
 
 "LeaderF
 Plugin 'Yggdroot/LeaderF'
+
+"async run
+Plugin 'skywind3000/asyncrun.vim'
 
  " All of your plugins must be added before the following line
 call vundle#end()
@@ -328,5 +328,5 @@ set nofoldenable
 set foldlevel=2
 
 " lead F
-nnoremap <Leader>t :LeaderfBufTag <CR>
+nnoremap <Leader>r :LeaderfBufTag <CR>
 
