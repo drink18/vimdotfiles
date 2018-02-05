@@ -70,6 +70,7 @@ Plugin 'Yggdroot/LeaderF'
 "async run
 Plugin 'skywind3000/asyncrun.vim'
 
+
  " All of your plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -153,12 +154,23 @@ vnoremap <Leader>s :sort<CR>
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
+" Disable Arrow keys in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-colorscheme desert
+colorscheme oceandeep
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -186,8 +198,8 @@ nnoremap //  yiw:Ack '<C-R>"'
 
 
 " Useful settings
-"" set history=700
-"" set undolevels=700
+set history=700
+set undolevels=700
 
 
 " Real programmers don't use TABs but spaces
@@ -322,7 +334,7 @@ nnoremap <C-M-f> :Ack
 set cursorline
 
 " folding
-set foldmethod=indent   
+set foldmethod=syntax
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
