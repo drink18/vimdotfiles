@@ -223,6 +223,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Allow switch buffer w/o saving
+set hidden
+
 
 " ============================================================================
 " Python IDE Setup
