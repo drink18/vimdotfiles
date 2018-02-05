@@ -38,6 +38,7 @@ flags = [
     'c++',
     '-I.',
     '-IProjects/PrecompiledHeaders',
+    '-IExternal/PhysX3/builds/Include',
     '-DENABLE_PHYSICS'
 ]
 
