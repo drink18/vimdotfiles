@@ -1,12 +1,10 @@
-" Sample .vimrc file by Martin Brochhaus
-" Presented at PyCon APAC 2012
-
-" vundle installation
 set nocompatible
 filetype off
 
-"set the runtime paht to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" vundle installation
+
+"set the runtime paht to include vundle and initialize
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#begin()
 
 
@@ -70,6 +68,17 @@ Plugin 'Yggdroot/LeaderF'
 "async run
 Plugin 'skywind3000/asyncrun.vim'
 
+" easy motion
+Plugin 'easymotion/vim-easymotion'
+
+"Ag
+Plugin 'rking/ag.vim'
+
+"ultisnip
+Plugin 'SirVer/ultisnips'
+
+"gtest
+Plugin 'alepez/vim-gtest'
 
  " All of your plugins must be added before the following line
 call vundle#end()
@@ -225,7 +234,6 @@ set noswapfile
 
 " Allow switch buffer w/o saving
 set hidden
-
 
 " ============================================================================
 " Python IDE Setup
