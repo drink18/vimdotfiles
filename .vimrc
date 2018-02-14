@@ -176,7 +176,7 @@ imap <left> <nop>
 imap <right> <nop>
 
 "bind f10 to build
-nnoremap <f10> :AsyncRun! ./build.pl b e
+nnoremap <f10> :wa \| AsyncRun! ./build.pl b e
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
