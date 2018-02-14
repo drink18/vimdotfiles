@@ -175,6 +175,9 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+"bind f10 to build
+nnoremap <f10> :AsyncRun! ./build.pl b e
+
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
@@ -188,9 +191,9 @@ filetype plugin indent on
 syntax on
 
 " Seach selected text in visual mode
-vnoremap // y<esc> :Ack '<C-R>"'<CR> 
+vnoremap // y<esc> :Asyncrun Ack '<C-R>"'<CR> 
 " Seach word under curosr in normal mode
-nnoremap //  yiw:Ack '<C-R>"'
+nnoremap //  yiw:AsyncRun Ag '<C-R>"'
 
 " Showing line numbers and length
 "" set number  " show line numbers

@@ -39,7 +39,9 @@ flags = [
     '-I.',
     '-IProjects/PrecompiledHeaders',
     '-IExternal/PhysX3/builds/Include',
-    '-DENABLE_PHYSICS'
+    '-DENABLE_PHYSICS',
+    '-DUNITY_EDITOR'
+
 ]
 
 
