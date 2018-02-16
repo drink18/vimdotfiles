@@ -51,7 +51,7 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'vim-airline/vim-airline'
 
 "vim-buffergator
-Plugin 'jeetsukumaran/vim-buffergator'
+"Plugin 'jeetsukumaran/vim-buffergator'
 
 "vim-buftabline
 Plugin 'ap/vim-buftabline'
@@ -75,7 +75,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'rking/ag.vim'
 
 "ultisnip
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 "gtest
 Plugin 'alepez/vim-gtest'
@@ -176,13 +176,13 @@ imap <left> <nop>
 imap <right> <nop>
 
 "bind f10 to build
-nnoremap <f10> :wa \| AsyncRun! ./build.pl b e
+nnoremap <f10> :wa <bar>copen<bar>AsyncRun! ./build.pl b e 
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-colorscheme seoul256
+colorscheme molokai_dark
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -228,6 +228,11 @@ set incsearch
 set ignorecase
 set smartcase
 
+" transparenty
+if has("gui_macvim")
+    set transparency=5
+endif
+
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
@@ -238,34 +243,10 @@ set noswapfile
 " Allow switch buffer w/o saving
 set hidden
 
-" ============================================================================
-" Python IDE Setup
-" ============================================================================
-
-
 " Settings for vim-powerline
 " cd ~/.vim/bundle
 " git clone git://github.com/Lokaltog/vim-powerline.git
 set laststatus=2
-
-
-" Settings for ctrlp
-" cd ~/.vim/bundle
-" git clone https://github.com/kien/ctrlp.vim.git
-let g:ctrlp_max_height = 30
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=*/coverage/*
-set wildignore+=*.o,*.obj,.git,.svn,moc_*,*.html,*.map,*.png,*.md5
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git$\|\.hg$\|\.svn$\|Projects$\|External$\|artifacts$\|Documentation$',
-  \ 'file': '\.o$\|\.obj$\|\.dylib$\|\.dll$\|moc_$\|.svn-base$|.html$\|.png$\|.map$\|.d$\|.dia$\|.meta$\|.md5$\|.preformat.bak$|.pdb$|.lump.cpp$'
-  \ }
-let g:ctrlp_cache_dir= $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 " Settings for python-mode
 " Note: I'm no longer using this. Leave this commented out
@@ -355,4 +336,3 @@ set foldlevel=2
 
 " lead F
 nnoremap <Leader>r :LeaderfBufTag <CR>
-
