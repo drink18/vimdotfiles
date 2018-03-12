@@ -84,16 +84,6 @@ Plugin 'alepez/vim-gtest'
 call vundle#end()
 filetype plugin indent on
 
-" Brief hlep
-"  :PluginList
-"  :PluginInstall
-"  :PluginSearch foo
-"  :PluginClean 
-"
-" ============================================
-" Note to myself:
-" DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
-" ============================================
 
 " Remap jj to Esc
 inoremap jj <Esc>
@@ -126,13 +116,6 @@ set bs=2     " make backspace behave like normal again
 " it is next to ``m`` and ``n`` which I use for navigating between tabs.
 let mapleader = " "
 
-
-" Bind nohl
-" Removes highlight of your last search
-" ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-"" noremap <C-n> :nohl<CR>
-"" vnoremap <C-n> :nohl<CR>
-"" inoremap <C-n> :nohl<CR>
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
@@ -194,19 +177,6 @@ syntax on
 vnoremap // y<esc> :Asyncrun Ack '<C-R>"'<CR> 
 " Seach word under curosr in normal mode
 nnoremap //  yiw:AsyncRun Ag '<C-R>"'
-
-" Showing line numbers and length
-"" set number  " show line numbers
-"" set tw=79   " width of document (used by gd)
-"" set nowrap  " don't automatically wrap on load
-"" set fo-=t   " don't automatically wrap text when typing
-"" set colorcolumn=80
-"" highlight ColorColumn ctermbg=233
-
-
-" easier formatting of paragraphs
-"" vmap Q gq
-"" nmap Q gqap
 
 
 " Useful settings
@@ -336,3 +306,15 @@ set foldlevel=2
 
 " lead F
 nnoremap <Leader>r :LeaderfBufTag <CR>
+
+
+" fonts
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h9:cANSI
+  endif
+endif
