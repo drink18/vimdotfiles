@@ -1,6 +1,9 @@
 set nocompatible
 filetype off
 
+set exrc
+set secure
+
 " vundle installation
 
 "set the runtime paht to include vundle and initialize
@@ -177,6 +180,8 @@ syntax on
 vnoremap // y<esc> :Asyncrun Ack '<C-R>"'<CR> 
 " Seach word under curosr in normal mode
 nnoremap //  yiw:AsyncRun Ag '<C-R>"'
+" search with ctrl /
+nnoremap <Leader><F5> :AsyncRun Ag 
 
 
 " Useful settings
@@ -292,7 +297,6 @@ highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
 " replace vimgrep with ag
 let g:ackprg = 'ag --vimgrep'
-nnoremap <C-M-f> :Ack
 
 
 " highlight current line
@@ -313,8 +317,15 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
+    set guifont=Menlo\ Regular:h12
   elseif has("gui_win32")
     set guifont=Consolas:h9:cANSI
   endif
 endif
+
+" always make quickfix windows takes whole horizontal space
+au FileType qf wincmd J
+
+" show white space
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set list"
