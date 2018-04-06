@@ -39,7 +39,7 @@ import ycm_core
 flags = [
 '-Wall',
 #'-Wextra',
-'-Werror',
+#'-Werror',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
@@ -57,8 +57,15 @@ get_python_inc(),
 '.',
 '-I',
 './Projects/PrecompiledHeaders',
+'-I',
+'./External/PhysX3/builds/Include',
+'-I',
+'./artifacts/generated/UsedByNativeInformation/MacEditorApp',
 '-D',
-'ENABLE_PHYSICS=1'
+'ENABLE_PHYSICS=1',
+'-D',
+'ENABLE_IL2CPP=1'
+
 ]
 
 
