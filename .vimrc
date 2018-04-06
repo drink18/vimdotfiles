@@ -17,9 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 " ycm
 Plugin 'Valloric/YouCompleteMe'
 
-"YCM_generato
-Plugin 'rdnetto/YCM-Generator'
-
 "NerdTree
 Plugin 'scrooloose/nerdtree'
 
@@ -82,6 +79,12 @@ Plugin 'rking/ag.vim'
 
 "gtest
 Plugin 'alepez/vim-gtest'
+
+"f-switch
+Plugin 'derekwyatt/vim-fswitch'
+
+"vim bookmark
+Plugin 'MattesGroeger/vim-bookmarks'
 
  " All of your plugins must be added before the following line
 call vundle#end()
@@ -327,5 +330,8 @@ endif
 au FileType qf wincmd J
 
 " show white space
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list"
+
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
