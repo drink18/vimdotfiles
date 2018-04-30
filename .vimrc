@@ -4,98 +4,87 @@ filetype off
 set exrc
 set secure
 
-" vundle installation
-
-"set the runtime paht to include vundle and initialize
-set rtp+=~/.vim/bundle/vundle.vim
-call vundle#begin()
-
-
-" let vundle manage Vunndle
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " ycm
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 "NerdTree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 "NerdCommneter
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " C++ syntax exra color
-Plugin 'octol/vim-cpp-enhanced-highlight'
-
-" Type script syntax
-Plugin 'leafgarland/typescript-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 "auto read
-Plugin 'djoshea/vim-autoread'
+Plug 'djoshea/vim-autoread'
 
 "add this line to your .vimrc file
-Plugin 'mattn/emmet-vim'
-
-" tsuquyomi
-Plugin 'Quramy/tsuquyomi'
+Plug 'mattn/emmet-vim'
 
 "color pack
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 
 "ack.vim
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 "vim-clang-format
-Plugin 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 
 "vim airline
-Plugin 'vim-airline/vim-airline'
-
-"vim-buffergator
-"Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'vim-airline/vim-airline'
 
 "vim-buftabline
-Plugin 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
 
 "mercenary
-Plugin 'jlfwong/vim-mercenary'
-
-"tagbar
-Plugin 'majutsushi/tagbar'
+Plug 'jlfwong/vim-mercenary'
 
 "LeaderF
-Plugin 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF'
 
 "async run
-Plugin 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " easy motion
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
 "Ag
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 "ultisnip
-"Plugin 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 "gtest
-Plugin 'alepez/vim-gtest'
-
-"f-switch
-Plugin 'derekwyatt/vim-fswitch'
+Plug 'alepez/vim-gtest'
 
 "vim bookmark
-Plugin 'MattesGroeger/vim-bookmarks'
+Plug 'MattesGroeger/vim-bookmarks'
 
- " All of your plugins must be added before the following line
-call vundle#end()
+"echodoc
+Plug 'Shougo/echodoc.vim'
+
+"ale
+Plug 'w0rp/ale'
+
+Plug 'mhinz/vim-signify'
+call plug#end()
+
+
+" tags
+set tags=./.tags;,.tags
+
 filetype plugin indent on
-
 
 " Remap jj to Esc
 inoremap jj <Esc>
 
 " auto read files
 set autoread
+
+set noshowmode
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -180,7 +169,7 @@ filetype plugin indent on
 syntax on
 
 " Seach selected text in visual mode
-vnoremap // y<esc> :Asyncrun Ack '<C-R>"'<CR> 
+vnoremap // y<esc> :Asyncrun Ack '<C-R>"'<CR>copen<CR> 
 " Seach word under curosr in normal mode
 nnoremap //  yiw:AsyncRun Ag '<C-R>"'
 " search with ctrl /
@@ -290,6 +279,12 @@ set encoding=UTF-8
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/github/vimdotfiles/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
 map <Leader>g :YcmCompleter GoTo<CR>
 let g:ycm_semantic_triggers =  {
 			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
@@ -298,8 +293,25 @@ let g:ycm_semantic_triggers =  {
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
+"ale
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+
+" signify
+let g:signify_realtime=1
 " replace vimgrep with ag
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'ag --vimgrep --depth 50'
 
 
 " highlight current line
@@ -312,6 +324,7 @@ set nofoldenable
 set foldlevel=2
 
 " lead F
+let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
 nnoremap <Leader>r :LeaderfBufTag <CR>
 
 
