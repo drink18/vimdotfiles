@@ -70,6 +70,9 @@ Plug 'mhinz/vim-signify'
 
 "gutentags
 Plug 'ludovicchabant/vim-gutentags'
+
+"cscope
+Plug 'https://github.com/whatot/gtags-cscope.vim'
 call plug#end()
 
 
@@ -326,6 +329,15 @@ set foldlevel=2
 " lead F
 let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
 nnoremap <Leader>r :LeaderfBufTag <CR>
+
+"cscope
+let g:gutentags_modules = []
+	if executable('ctags')
+		let g:gutentags_modules += ['ctags']
+	endif
+if executable('gtags-cscope') && executable('gtags')
+    let g:gutentags_modules += ['gtags_cscope']
+endif
 
 " gutentags
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
