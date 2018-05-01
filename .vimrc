@@ -51,9 +51,6 @@ Plug 'skywind3000/asyncrun.vim'
 " easy motion
 Plug 'easymotion/vim-easymotion'
 
-"Ag
-Plug 'rking/ag.vim'
-
 "ultisnip
 "Plug 'SirVer/ultisnips'
 
@@ -70,6 +67,9 @@ Plug 'Shougo/echodoc.vim'
 Plug 'w0rp/ale'
 
 Plug 'mhinz/vim-signify'
+
+"gutentags
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 
@@ -326,6 +326,25 @@ set foldlevel=2
 " lead F
 let g:Lf_CommandMap = {'<Tab>': ['<ESC>']}
 nnoremap <Leader>r :LeaderfBufTag <CR>
+
+" gutentags
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+let g:gutentags_ctags_tagfile = '.tags'
+
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+"Echodoc
+let g:echodoc#enable_at_startup = 1
 
 
 " fonts
