@@ -152,10 +152,10 @@ map <left> <nop>
 map <right> <nop>
 
 " Disable Arrow keys in Insert mode
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
 
 "bind f10 to build
 nnoremap <f10> :wa <bar>copen<bar>AsyncRun ./build.pl b e 
@@ -284,5 +284,10 @@ endif
 au FileType qf wincmd J
 
 " show white space
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+set listchars=trail:~,extends:>,precedes:<
 set list"
+
+set encoding=UTF-8
+
+source ~/.vim/plugin/bundle.vim
+source ~/.vim/plugin/gutentags_plus.vim
