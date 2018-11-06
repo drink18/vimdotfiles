@@ -288,6 +288,11 @@ set listchars=trail:~,extends:>,precedes:<
 set list"
 
 set encoding=UTF-8
+language en
+set langmenu=en_US
+let $LANG = 'en_US'
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 
 source ~/.vim/plugin/bundle.vim
 source ~/.vim/plugin/gutentags_plus.vim
