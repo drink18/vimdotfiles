@@ -83,7 +83,7 @@ set tags=./.tags;,.tags
 filetype plugin indent on
 
 " Remap jj to Esc
-inoremap jj <Esc>
+"inoremap jj <Esc>
 
 " auto read files
 set autoread
