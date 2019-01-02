@@ -7,10 +7,10 @@ set secure
 call plug#begin('~/.vim/plugged')
 
 " ycm
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'for': 'cpp'}
 
 "NerdTree
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 "NerdCommneter
 Plug 'scrooloose/nerdcommenter'
