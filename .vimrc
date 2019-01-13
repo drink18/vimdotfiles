@@ -73,6 +73,9 @@ Plug 'ludovicchabant/vim-gutentags'
 
 "cscope
 Plug 'https://github.com/whatot/gtags-cscope.vim'
+
+" Posero
+Plug 'https://github.com/alfredodeza/posero.vim'
 call plug#end()
 
 runtime .vimcustom/bundle.vim
@@ -146,10 +149,10 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Disable Arrow keys in Escape mode
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
 
 " Disable Arrow keys in Insert mode
 "imap <up> <nop>

@@ -91,3 +91,10 @@ let g:echodoc#enable_at_startup = 1
 " vim bookmark
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
+
+" posero
+let g:posero_default_mappings = 1
+nnoremap <silent> <buffer> <up>    :call posero#PreviousLine()<CR>
+nnoremap <silent> <buffer> <down>  :call posero#NextLine()<CR>
+nnoremap <silent> <buffer> <right> :call posero#NextSlide()<CR>
+nnoremap <silent> <buffer> <left>  :call posero#PreviousSlide()<CR>
