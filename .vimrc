@@ -7,7 +7,7 @@ set secure
 call plug#begin('~/.vim/plugged')
 
 " ycm
-Plug 'Valloric/YouCompleteMe', {'for': 'cpp'}
+Plug 'Valloric/YouCompleteMe', {'for': ['cpp', 'python']}
 
 "NerdTree
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -52,7 +52,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'easymotion/vim-easymotion'
 
 "ultisnip
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 "gtest
 Plug 'alepez/vim-gtest'
@@ -76,6 +76,13 @@ Plug 'https://github.com/whatot/gtags-cscope.vim'
 
 " Posero
 Plug 'https://github.com/alfredodeza/posero.vim'
+
+" Power shell
+Plug 'PProvost/vim-ps1'
+
+" pyflake
+Plug 'kevinw/pyflakes-vim'
+
 call plug#end()
 
 runtime .vimcustom/bundle.vim
@@ -260,8 +267,8 @@ if $TERM_PROGRAM =~ "iTerm.app"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -279,7 +286,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h12
   elseif has("gui_win32")
-    set guifont=Consolas:h9:cANSI
+    set guifont=Fira\ Code\ Retina:h9:cANSI
   endif
 endif
 
