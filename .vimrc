@@ -174,7 +174,8 @@ nnoremap <f10> :wa <bar>copen<bar>AsyncRun ./build.pl b e
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-colorscheme molokai_dark
+"colorscheme molokai_dark
+colorscheme gruvbox
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -286,7 +287,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h12
   elseif has("gui_win32")
-    set guifont=Fira\ Code\ Retina:h9:cANSI
+    set guifont=Fira\ Code\ Retina:h10
   endif
 endif
 
