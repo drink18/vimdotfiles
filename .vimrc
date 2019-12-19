@@ -304,5 +304,8 @@ let $LANG = 'en_US'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" initial window size 
+set lines=80 columns=160
+
 source ~/.vim/plugin/bundle.vim
 source ~/.vim/plugin/gutentags_plus.vim
